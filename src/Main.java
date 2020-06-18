@@ -6,11 +6,16 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		
+		System.out.println("Veuillez saisir votre prénom :");
+		
+		String prenom = sc.nextLine();
+		
 		System.out.println("Veuillez saisir votre nom :");
 		
 		String nom = sc.nextLine();
 		
-		Locuteur loc = new Locuteur(nom);
+		Locuteur loc = new Locuteur(prenom, nom);
 		
 		if(loc.creer_modele())
 			System.out.println("OK");
