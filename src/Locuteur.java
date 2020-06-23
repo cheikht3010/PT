@@ -66,6 +66,19 @@ public class Locuteur {
 		writer.close();
 	}
 	
+	private void fichier_computetest_gmm_target_seg () {
+		try
+        { 
+			PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("./alize/ndx/computetest_gmm_target-seg.ndx", true)));
+			writer.print(" " + this.nomFichier);
+			writer.close();
+        }
+		catch(Exception e)
+        { 
+            System.out.println(e);
+        }
+	}
+	
 	private boolean parametrisation () {
 		
 		boolean retour = false;
@@ -77,6 +90,7 @@ public class Locuteur {
 			runtime.getRuntime().exec( command_parametrisation );
 			System.out.println("Parametrisation terminée");
 			fichierAll(this.nomFichier + "_" + (nbFichier+1));
+			Thread.sleep(3000);
 			retour = true;
         }
 		catch(Exception e)
@@ -100,6 +114,7 @@ public class Locuteur {
 			Runtime runtime = Runtime.getRuntime();
 			runtime.getRuntime().exec( command_normalisation );
 			System.out.println("Première normalisation terminée");
+			Thread.sleep(3000);
 			retour = true;
         }
 		catch(Exception e)
@@ -122,6 +137,7 @@ public class Locuteur {
 			runtime.getRuntime().exec( command_normalisation );
 			System.out.println("Deuxième normalisation terminée");
 			fichierUBM(this.nomFichier + "_" + (nbFichier+1));
+			Thread.sleep(3000);
 			retour = true;
         }
 		catch(Exception e)
@@ -143,6 +159,7 @@ public class Locuteur {
 			Runtime runtime = Runtime.getRuntime();
 			runtime.getRuntime().exec( command_energyDetector );
 			System.out.println("Détection d'énergie terminée");
+			Thread.sleep(3000);
 			retour = true;
         }
 		catch(Exception e)
@@ -165,6 +182,7 @@ public class Locuteur {
 			runtime.getRuntime().exec( command_trainWorld );
 			System.out.println("Entrainement du modele monde terminé");
 			fichierTrainModel(this.nomFichier, this.nomFichier + "_" + (nbFichier+1) );
+			Thread.sleep(3000);
 			retour = true;
         }
 		catch(Exception e)
@@ -179,13 +197,14 @@ public class Locuteur {
 	private boolean train_target () {
 		boolean retour = false;
 		
-		String command_target = "./alize/bin/TrainWorld --config ./alize/cfg/TrainWorld.cfg --inputFeatureFilename ./alize/lst/UBM.lst";
+		String command_target = "./alize/bin/TrainTarget --config ./alize/cfg/TrainTarget.cfg --targetIdList ./alize/ndx/trainModel.ndx --inputWorldFilename ./alize/gmm/world.gmm --debug false --verbose true";
 		
 		try
         { 
 			Runtime runtime = Runtime.getRuntime();
 			runtime.getRuntime().exec( command_target );
 			System.out.println("Entrainement du modele target terminé");
+			Thread.sleep(3000);
 			retour = true;
         }
 		catch(Exception e)
@@ -207,6 +226,7 @@ public class Locuteur {
 						if (normalisation_2()) {
 							if (train_world ()) {
 								if (train_target()) {
+									fichier_computetest_gmm_target_seg();
 									retour = true;
 								}
 							}
@@ -218,5 +238,5 @@ public class Locuteur {
 		return retour;
 	}
 	
-	
+
 }
