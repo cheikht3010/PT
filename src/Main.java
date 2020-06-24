@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) throws IOException {
 		
-		Scanner sc = new Scanner(System.in);
+		/*Scanner sc = new Scanner(System.in);
 		
 		
 		System.out.println("Veuillez saisir votre prénom :");
@@ -22,5 +22,12 @@ public class Main {
 		
 		else
 			System.out.println("KO");	
+		*/
+		TestLocuteur testLoc = new TestLocuteur();
+		if(testLoc.tester())
+			System.out.println("OK");
+		
+		else
+			System.out.println("KO");
 	}
 }

@@ -1,16 +1,1 @@
-M hioudiedhiou 1 cheikhdiedhiou_1 0.825273
-M xxxxyyyy 0 cheikhdiedhiou_1 -0.444789
-M gggghhhh 1 cheikhdiedhiou_1 0.0916388
-M eeeemmmm 0 cheikhdiedhiou_1 -6.80389
-M ffffbbbb 1 cheikhdiedhiou_1 0.196403
-M bbbbuuuu 1 cheikhdiedhiou_1 1.217
-M yyyypppp 1 cheikhdiedhiou_1 0.193408
-M ffffuuuu 0 cheikhdiedhiou_1 -1.5897
-M ccccnnnn 1 cheikhdiedhiou_1 0.192777
-M ppppjjjj 1 cheikhdiedhiou_1 0.0309602
-M ffffwwww 0 cheikhdiedhiou_1 -2.12201
-M samisami 1 cheikhdiedhiou_1 0.448323
-M annaanna 0 cheikhdiedhiou_1 -0.561627
-M saintdenis 0 cheikhdiedhiou_1 -0.859807
-M CharlesDegaule 1 cheikhdiedhiou_1 0.710188
-M jeanbon 0 cheikhdiedhiou_1 -0.0422576
+M cheikhdiedhiou 1 test 0.210636
