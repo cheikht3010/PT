@@ -115,18 +115,58 @@ public class TestLocuteur {
 	      
 	      return nbrLine; 
 	   }
+	   
+	   private String[][] lire_ligne ()
+	   {
+		   // Le fichier d'entrée
+		      File file = new File("./alize/res/result.res");
+		   // Initialiser le compteur à zéro
+		      int nbrLine = 0;
+		      int n = 0;
+		      nbrLine = nombre_de_ligne();
+		     
+		      String resultat[][] = new String[nbrLine][5];
+		     
+		      // Créer l'objet File Reader
+		      try {
+				  FileReader fr = new FileReader(file);
+				  // Créer l'objet BufferedReader 
+				  BufferedReader br = new BufferedReader(fr);  
+				  String str;
+				   // Lire le contenu du fichier
+				  while((str = br.readLine()) != null)
+				  {
+					 resultat[n] = str.split(" ");
+				     n++;               
+				  }
+				  fr.close();
+		      }
+		      catch(Exception e)
+		      { 
+		    	  System.out.println(e);
+		      }
+		      return resultat;
+	   }
+	   
+	   private String decision()
+	   {
+		   String resultat[][] = lire_ligne();
+		   double valeurMax = 0.0;
+		   int indiceDuMax = 0;
+		   for (int i = 0; i < resultat.length; i++) {
+				if(resultat[i][2].equals("1")) {
+					if (valeurMax < Double.parseDouble(resultat[i][4])) {
+						valeurMax = Double.parseDouble(resultat[i][4]);
+						indiceDuMax = i;
+					}
+				}	
+			}
+		   return resultat[indiceDuMax][1];
+	   }
 	
+
 	/*
-	 * A faire
-	 * Analyse du fichier result.res pour determiner le nom de la personne qui a prononcé le mot
-	 * Le contenu du fichier doit etre recuperé dans une matrice
-	 * */
-	private String decision () {
-		String nom = "";
-		return nom;
-	}
-	
-	/*boolean tester () {
+	boolean tester () {
 		boolean retour = false;
 		if(enregistrement_wav_test ()) {
 			if(parametrisation_energyDetection_normalisation_test()) {
@@ -139,7 +179,9 @@ public class TestLocuteur {
 	}*/
 	
 	boolean tester () {
-		nombre_de_ligne();
+		String nom = decision();
+		System.out.println("La personne qui a parlé est : " + nom);
+		
 		return true;
 	}
 	
