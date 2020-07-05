@@ -161,7 +161,15 @@ public class TestLocuteur {
 					}
 				}	
 			}
-		   return resultat[indiceDuMax][1];
+		   if(Double.parseDouble(resultat[indiceDuMax][4]) > 0.5)
+		   {
+			   String prenomNom = resultat[indiceDuMax][1];
+			   prenomNom = prenomNom.replace("_", " ");
+			   return prenomNom; 
+		   }
+		   else 
+			   return null;
+		   
 	   }
 	
 
@@ -180,7 +188,11 @@ public class TestLocuteur {
 	
 	boolean tester () {
 		String nom = decision();
-		System.out.println("La personne qui a parlé est : " + nom);
+		
+		if(nom == null)
+			System.out.println("La personne qui a parlé n'est pas reconnu !");
+		else
+			System.out.println("La personne qui a parlé est : " + nom);
 		
 		return true;
 	}

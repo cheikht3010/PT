@@ -17,7 +17,7 @@ public class Locuteur {
 	Locuteur(String prenom, String nom) {
 		this.nom = nom;
         this.prenom = prenom;
-        this.nomFichier = prenom + nom;
+        this.nomFichier = prenom + "_" + nom;
         this.nbFichier = 0;
         nextId++;
 	}
