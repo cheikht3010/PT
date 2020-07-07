@@ -11,10 +11,10 @@ public class Main {
 		System.out.println(" 2. TESTER UN LOCUUTEUR");
 		System.out.println(" Faites votre choix : ");
 
-		String choix = scChoix.nextLine();
+		String choix = "";
 
 		do {
-
+			choix = scChoix.nextLine();
 			if (choix.equals("1")) {
 				Scanner sc = new Scanner(System.in);
 
@@ -41,7 +41,7 @@ public class Main {
 			} else {
 				System.out.println("Choix non valide Veuillez recommencer!");
 			}
-
+			
 		} while ((!choix.equals("1")) && (!choix.equals("2")));
 
 	}
