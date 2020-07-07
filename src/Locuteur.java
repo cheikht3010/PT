@@ -85,6 +85,7 @@ public class Locuteur {
 					new BufferedWriter(new FileWriter("./alize/ndx/computetest_gmm_target-seg.ndx", true)));
 			writer.print(" " + this.identifiantLocuteur);
 			writer.close();
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
